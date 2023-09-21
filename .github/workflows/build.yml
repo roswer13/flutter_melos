@@ -50,9 +50,10 @@ jobs:
           - name: ⚠️ℹ️ Run Dart analysis for app package
             uses: zgosalvez/github-actions-analyze-dart@v2.0.9
             with:
-              working-directory: "${{github.workspace}}/packages/"
+              working-directory: "${{github.workspace}}/packages/melos/"
           - name: 📡 Run flutter analyze
             run: |
+              cd ${{github.workspace}}/packages/melos/
               flutter analyze > analysis_output.txt
             continue-on-error: true
           - name: 📈 Check for code issues
