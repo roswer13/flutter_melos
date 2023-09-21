@@ -50,11 +50,7 @@ jobs:
           - name: ⚠️ℹ️ Run Dart analysis for app package
             uses: zgosalvez/github-actions-analyze-dart@v2.0.9
             with:
-              working-directory: "${{github.workspace}}/app/"
-          - name: ⚠️ℹ️ Run Dart analysis for data package
-            uses: zgosalvez/github-actions-analyze-dart@v2.0.9
-            with:
-              working-directory: "${{github.workspace}}/design_system/"
+              working-directory: "${{github.workspace}}/packages/"
           - name: 📡 Run flutter analyze
             run: |
               flutter analyze > analysis_output.txt
