@@ -26,3 +26,12 @@ jobs:
         run: melos build:pub_get:all
       - name: 🧪 Run tests with coverage
         run: melos test:with-lcov-coverage:all
+      - name: 🧪✅❌ Publish test results
+        id: compute_test_results
+        uses: dorny/test-reporter@v1.6.0
+        with:
+          name: '🧪📊 Unit tests report'
+          path: test_reports/*_test_report.json
+          reporter: 'flutter-json'
+          max-annotations: '50'
+          token: ${{ secrets.GITHUB_TOKEN }}
