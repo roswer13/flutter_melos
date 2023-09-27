@@ -55,7 +55,7 @@ jobs:
         run: echo $KEYSTORE_BASE64 | base64 --decode > "${{ github.workspace }}/android-keystore.jks"
       - name: 📝🔐 Create keystore.properties file
         env:
-          KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/app/android/keystore.properties
+          KEYSTORE_PROPERTIES_PATH: ${{ github.workspace }}/packages/melos/android/keystore.properties
         run: |
           echo '${{ inputs.flavor }}StoreFile=${{ github.workspace }}/android-keystore.jks' > $KEYSTORE_PROPERTIES_PATH
           echo '${{ inputs.flavor }}KeyAlias=${{ secrets.KEYSTORE_KEY_ALIAS }}' >> $KEYSTORE_PROPERTIES_PATH
